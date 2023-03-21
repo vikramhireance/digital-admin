@@ -1,0 +1,23 @@
+.left-sidebar .navbar-vertical .navbar-nav .nav-item .nav .nav-item .nav-link:before{
+    display: none;
+}
+table.table-bordered.dataTable{
+    max-width: 100% !important;
+    width: 100%;
+}
+
+.button {
+    background-color: #9c27b0; /* Green */
+    border: none;
+    color: white;
+    padding: 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+  .button1:hover {
+    background-color: #6a0080
+  ;
+    color: white;
+  }
