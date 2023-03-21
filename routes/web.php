@@ -46,8 +46,8 @@ use App\Http\Controllers\Admin\TalkController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/',[PagenameController::class,'home']);
-Route::get('/admin/login', function () {
+
+Route::get('/', function () {
     if(Auth::check())
     {
          return redirect('/admin/home');
@@ -58,8 +58,16 @@ Route::get('/admin/login', function () {
     }
 })->name('adminLogin');
 
-
-Route::get('/login',[LoginController::class,'loginform'])->name('login');
+Route::get('/login', function () {
+    if(Auth::check())
+    {
+         return redirect('/admin/home');
+    }
+    else
+    {
+     return view('auth.adminLogin');
+    }
+})->name('adminLogin');
 
 Auth::routes();
   
@@ -234,11 +242,3 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::post('admin/manage_seo/delete', [ManageSeoController::class, 'delete'])->name('admin.manage_seo_delete');
 
 });
-
-
-
-Route::get('pages/{pagename}',[PagenameController::class,'page'])->name('pages');
-Route::post('sendmessage',[PagenameController::class,'sendmessage'])->name('sendmessage');
-Route::get('services_readmore/{id}',[PagenameController::class,'services_readmore'])->name('services_readmore');
-Route::get('portfolio_singleview/{id}',[PagenameController::class,'portfolio_singleview'])->name('portfolio_singleview');
-Route::get('blog_readmore/{id}',[PagenameController::class,'blog_readmore'])->name('blog_readmore');
