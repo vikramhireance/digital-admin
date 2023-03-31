@@ -42,8 +42,7 @@
                                                 <th>ID</th>
                                                 <th>Name</th>
                                                 <th>Email</th>
-                                                <th>Phone</th>
-                                                <th>Title</th>
+                                                <th>Subject</th>
                                                 <th>Message</th>
                                                 <th>Date</th>
                                                 <th>Action</th>
@@ -100,13 +99,10 @@
                     data: 'email',
                     name: 'email'
                 },
+                
                 {
-                    data: 'phone',
-                    name: 'phone'
-                },
-                {
-                    data: 'title',
-                    name: 'title'
+                    data: 'subject',
+                    name: 'subject'
                 },
                 {
                     data: 'message',

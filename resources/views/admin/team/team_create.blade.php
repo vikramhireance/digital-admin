@@ -57,27 +57,7 @@
                                         <textarea class="ckeditor form-control" name="description"></textarea>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="example-text-input-lg">Facebook URL</label>
-                                    <div class="col-md-12">
-                                        <input class="form-control mb-3" type="text" name="facebook_URL" required
-                                            placeholder="Enter Facebook URL" id="example-text-input-lg">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="example-text-input-lg">Instagram URL</label>
-                                    <div class="col-md-12">
-                                        <input class="form-control mb-3" type="text" name="instagram_URL" required
-                                            placeholder="Enter Instagram URL" id="example-text-input-lg">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="example-text-input-lg">Linkedin URL</label>
-                                    <div class="col-md-12">
-                                        <input class="form-control mb-3" type="text" name="linkedin_URL" required
-                                            placeholder="Enter Linkedin URL" id="example-text-input-lg">
-                                    </div>
-                                </div>
+                                
                         </div>
                         <div class="card-footer">
                             <center class="col-md-12">

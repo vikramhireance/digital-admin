@@ -46,11 +46,12 @@
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Name</th>
+                                                <th>Title</th>
                                                 <th>Designation</th>
                                                 <th>Message</th>
-                                                <th>Person Image</th>
-                                                <th>Rating</th>
+                                                <th>User Image</th>
+                                                <th>Logo</th>
+                                                {{-- <th>Rating</th> --}}
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -117,9 +118,10 @@
                     name: 'person_image'
                 },
                 {
-                    data: 'rating',
-                    name: 'rating'
+                    data: 'logo',
+                    name: 'logo'
                 },
+              
                 {
                     data: 'action',
                     name: 'action',

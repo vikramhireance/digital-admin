@@ -51,9 +51,8 @@
                                                 <th>Name</th>
                                                 <th>Designation</th>
                                                 <th>Person Image</th>
-                                                <th>Facebook URL</th>
-                                                <th>Instagram URL</th>
-                                                <th>Linkedin URL</th>
+                                                <th>Description</th>
+                                                
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -120,17 +119,10 @@
                         name: 'person_image'
                     },
                     {
-                        data: 'facebook_URL',
-                        name: 'facebook_URL'
+                        data: 'description',
+                        name: 'description'
                     },
-                    {
-                        data: 'instagram_URL',
-                        name: 'instagram_URL'
-                    },
-                    {
-                        data: 'linkedin_URL',
-                        name: 'linkedin_URL'
-                    },
+                    
                     {
                         data: 'action',
                         name: 'action',

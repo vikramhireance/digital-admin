@@ -21,10 +21,13 @@ class TestimonialsController extends Controller
                         ->editColumn('person_image', function($slider){
                             return '<img src="'.URL::to('Testimonials').'/'.$slider->person_image.'" width="60px">';
                         })
+                        ->editColumn('logo', function($slider){
+                            return '<img src="'.URL::to('Testimonials').'/'.$slider->logo.'" width="60px">';
+                        })
                         ->addColumn('action', function($data){
                             return view('admin.testimonial.action',compact('data'))->render();
                         })
-                        ->rawColumns(['action','person_image'])
+                        ->rawColumns(['action','person_image','logo'])
                         ->make(true);
             }
             return view('admin.testimonial.testimonial_index');
@@ -42,7 +45,8 @@ class TestimonialsController extends Controller
                 'designation'=> 'required',
                 'message'=> 'required',
                 'person_image'=> 'required',
-                'rating'=> 'required',
+                'logo'=> 'required',
+               
             ]);
 
             $testimonial = new Testimonials;
@@ -50,7 +54,8 @@ class TestimonialsController extends Controller
             $testimonial->designation = $request->designation;
             $testimonial->message = $request->message;
             $testimonial->person_image = $request->person_image;
-            $testimonial->rating = $request->rating;
+            $testimonial->logo = $request->logo;
+          
 
 
             if ($request->file('person_image')) {
@@ -59,6 +64,13 @@ class TestimonialsController extends Controller
                 $filename =date('YmdHis') . "." . $file->getClientOriginalExtension();
                 $file->move(public_path('Testimonials'), $filename);
                 $testimonial->person_image = $filename;
+            }
+            if ($request->file('logo')) {
+            
+                $file = $request->file('logo');
+                $filename =date('YmdHis') . "." . $file->getClientOriginalExtension();
+                $file->move(public_path('Testimonials'), $filename);
+                $testimonial->logo = $filename;
             }
             $testimonial->save();
             return redirect('/admin/testimonial')->with('success', "Testimonialss Added successfully");
@@ -77,7 +89,7 @@ class TestimonialsController extends Controller
                 'name'=> 'required',
                 'designation'=> 'required',
                 'message'=> 'required',
-                'rating'=> 'required',
+                
             ]);
 
             $input['name'] = $request->name;
@@ -99,6 +111,21 @@ class TestimonialsController extends Controller
                     $input['person_image']  = $filename;
                 }
             }
+            if($request->logo){
+                if($request->file('logo')) {
+                    $data = Testimonials::find($request->id);
+                    if($data->logo){
+                        $image_path = public_path('Testimonials/').$data->logo;
+                        if(file_exists($image_path)){
+                            File::delete($image_path);
+                        }
+                    }
+                    $file = $request->file('logo');
+                    $filename =date('YmdHis') . "." . $file->getClientOriginalExtension();
+                    $file->move(public_path('Testimonials'), $filename);
+                    $input['logo']  = $filename;
+                }
+            }
 
             Testimonials::where('id',$request->id)->update($input);
             return redirect('/admin/testimonial')->with('success', "Serviice Updated successfully");
@@ -109,6 +136,12 @@ class TestimonialsController extends Controller
             $data =Testimonials::where('id', $request->id)->first();
             if($data->person_image){
                 $image_path = public_path('Testimonials/').$data->person_image;
+                if(file_exists($image_path)){
+                    File::delete($image_path);
+                }
+            }
+            if($data->logo){
+                $image_path = public_path('Testimonials/').$data->logo;
                 if(file_exists($image_path)){
                     File::delete($image_path);
                 }

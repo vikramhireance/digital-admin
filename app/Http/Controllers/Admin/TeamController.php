@@ -45,9 +45,7 @@ class TeamController extends Controller
                 'designation'=> 'required',
                 'person_image'=> 'required',
                 'description'=> 'required',
-                'facebook_URL'=> 'required',
-                'instagram_URL'=> 'required',
-                'linkedin_URL'=> 'required',
+                
             ]);
 
             $team = new Team;
@@ -55,10 +53,7 @@ class TeamController extends Controller
             $team->designation = $request->designation;
             $team->person_image = $request->person_image;
             $team->description = $request->description;
-            $team->facebook_URL = $request->facebook_URL;
-            $team->instagram_URL = $request->instagram_URL;
-            $team->linkedin_URL = $request->linkedin_URL;
-
+           
 
             if ($request->file('person_image')) {
             
@@ -84,17 +79,13 @@ class TeamController extends Controller
                 'name'=> 'required',
                 'designation'=> 'required',
                 'description'=> 'required',
-                'facebook_URL'=> 'required',
-                'instagram_URL'=> 'required',
-                'linkedin_URL'=> 'required',
+                
             ]);
 
             $input['name'] = $request->name;
             $input['designation'] = $request->designation;
             $input['description'] = $request->description;
-            $input['facebook_URL'] = $request->facebook_URL;
-            $input['instagram_URL'] = $request->instagram_URL;
-            $input['linkedin_URL'] = $request->linkedin_URL;
+            
             if($request->person_image){
                 if($request->file('person_image')) {
                     $data = Team::find($request->id);

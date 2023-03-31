@@ -60,6 +60,7 @@
                         <a class="nav-link" href="{{ URL::to('admin/slider') }}"><i
                                 class="ti ti-map menu-icon"></i><span>Manage Slider</span></a>
                     </li>
+                   
                      <li class="nav-item">
                         <a class="nav-link" href="{{ URL::to('admin/about_us') }}"><i
                                 class="ti ti-file-diff menu-icon"></i><span>Manage About Us</span></a>
@@ -85,6 +86,49 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ URL::to('admin/talk') }}"><i
                                 class="ti ti-file-diff menu-icon"></i><span>Talk To Us</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sidebarPricing" data-bs-toggle="collapse" role="button"
+                            aria-expanded="false" aria-controls="sidebarPricing">
+                            <i class="ti ti-brand-asana menu-icon"></i>
+                            <span>Manage Pricing</span>
+                        </a>
+                        <div class="collapse " id="sidebarPricing">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ URL::to('admin/pricing') }}"></i><span>Pricing</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ URL::to('admin/pricing_items') }}"></i><span>Pricing Items</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ URL::to('admin/testimonial') }}"><i
+                                class="ti ti-basket menu-icon"></i><span>Manage Testimonials</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ URL::to('admin/trusted_by') }}"><i
+                                class="ti ti-map menu-icon"></i><span>Manage Trusted By</span></a>
+                    </li>
+                    <li class="nav-item mt-2">
+                        <a class="nav-link" href="{{ URL::to('admin/team') }}"><i
+                            class="ti ti-users menu-icon"></i><span>Manage Team</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ URL::to('admin/contact') }}"><i
+                                class="ti ti-headphones menu-icon"></i><span>Manage Contact</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ URL::to('admin/contact/messages') }}">
+                            <i class="ti ti-message menu-icon"></i><span>Manage Messages</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ URL::to('admin/useful_link') }}"><i
+                                class="ti ti-file-diff menu-icon"></i><span>Manage Useful Links</span></a>
                     </li>
                     {{--
                     <li class="nav-item">
@@ -132,10 +176,7 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="nav-item mt-2">
-                        <a class="nav-link" href="{{ URL::to('admin/team') }}"><i
-                            class="ti ti-users menu-icon"></i><span>Manage Team</span></a>
-                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="#sidebarWebsite" data-bs-toggle="collapse" role="button"
                             aria-expanded="false" aria-controls="sidebarWebsite">
@@ -169,25 +210,15 @@
                         <a class="nav-link" href="{{ URL::to('admin/gallery') }}"><i
                                 class="ti ti-stack menu-icon"></i><span>Manage Gallery</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ URL::to('admin/contact') }}"><i
-                                class="ti ti-headphones menu-icon"></i><span>Manage Contact</span></a>
-                    </li>
                     
                     
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ URL::to('admin/testimonial') }}"><i
-                                class="ti ti-basket menu-icon"></i><span>Manage Testimonials</span></a>
-                    </li>
+                    
+                   
                     <li class="nav-item">
                         <a class="nav-link" href="{{ URL::to('admin/statistics') }}"><i
                                 class="ti ti-basket menu-icon"></i><span>Manage Statistics</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ URL::to('admin/contact/messages') }}">
-                            <i class="ti ti-message menu-icon"></i><span>Manage Messages</span>
-                        </a>
-                    </li>
+                    
                     
                     <li class="nav-item">
                         <a class="nav-link" href="{{ URL::to('admin/email/subscribers') }}">

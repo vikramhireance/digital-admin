@@ -23,7 +23,7 @@
                 <div class="dropdown-menu dropdown-menu-end dropdown-lg pt-0">
         
                     <h6 class="dropdown-item-text font-15 m-0 py-3 border-bottom d-flex justify-content-between align-items-center">
-                        Emails <span class="badge bg-soft-primary badge-pill">{{ getLetestMessageCount() }}</span>
+                        Emails <span class="badge bg-soft-primary badge-pill"></span>
                     </h6> 
                     <div class="notification-menu" data-simplebar>
                         <!-- item-->

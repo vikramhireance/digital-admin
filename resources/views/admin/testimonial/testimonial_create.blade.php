@@ -38,7 +38,7 @@
 
                                 </div>
                                 <div class="form-group">
-                                    <label for="example-text-input-lg" >Name</label>
+                                    <label for="example-text-input-lg" >Title</label>
                                     <div class="col-md-12">
                                         <input class="form-control mb-3" type="text" name="name"
                                             placeholder="Enter Name" id="example-text-input-lg">
@@ -56,9 +56,16 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="example-text-input-lg" >Person Image</label>
+                                    <label for="example-text-input-lg" >User Image</label>
                                     <div class="col-sm-12">
                                         <input class="form-control mb-3 file1" type="file" name="person_image"
+                                            placeholder="Select Image" id="example-text-input-lg">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="example-text-input-lg" >Logo</label>
+                                    <div class="col-sm-12">
+                                        <input class="form-control mb-3 file1" type="file" name="logo"
                                             placeholder="Select Image" id="example-text-input-lg">
                                     </div>
                                 </div>
@@ -69,7 +76,7 @@
                                             placeholder="Enter Designation" id="example-text-input-lg">
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="example-text-input-lg" >Rating</label>
                                     <div class="col-md-12 mt-2">
                                         <span class="fa fa-star fa-lg rating" data-id="1" id="ratingno_1"></span>
@@ -79,7 +86,7 @@
                                         <span class="fa fa-star fa-lg rating" data-id="5" id="ratingno_5"></span>
                                     </div>
                                     <input type="hidden" name="rating" class="rating_value">
-                                </div>
+                                </div> --}}
                         </div>
                         <div class="card-footer">
                             <center class="col-md-12">
@@ -111,7 +118,7 @@
 <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 <script src="{{ asset('/admin/assets/plugins/select/selectr.min.js') }}"></script>
 <script src="{{ asset('/admin/assets/pages/forms-advanced.js') }}"></script>
-<script>
+{{-- <script>
 $(".rating").click(function(){
     var no = $(this).attr('data-id');
     $('.rating_value').val(no);
@@ -120,7 +127,7 @@ $(".rating").click(function(){
         $('#ratingno_'+index).attr('class','fa fa-star fa-lg rating checked');
     }
 });
-</script>
+</script> --}}
 <script>
     $('.imgPreview').hide();
     $('.file1').change(function(){

@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Talk extends Model
 {
     use HasFactory;
+    protected $table='talktous';
+    protected $fillable=['title','description'];
 }

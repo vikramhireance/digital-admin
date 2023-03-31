@@ -20,9 +20,7 @@ class ContactController extends Controller
             $data = Contact::select('*');
             return Datatables::of($data)
                     ->addIndexColumn()
-                    // ->editColumn('image', function($slider){
-                    //     return '<img src="'.URL::to('Services').'/'.$slider->image.'" width="60px">';
-                    // })
+                    
                     ->addColumn('action', function($data){
                         return view('admin.contact.contact_action',compact('data'))->render();
                     })
@@ -89,5 +87,14 @@ class ContactController extends Controller
 
         Contact::where('id', $request->id)->delete();
         return response()->json(['status'=>true,'message'=>'"Contact deleted successfully"']); 
+    }
+    public function mullti_delete(Request $request)
+    {
+        if(!$request->contact_id){
+            return json_encode(false);
+        }
+        $contact_id = $request->contact_id;
+        Contact::whereIn('id', $contact_id)->delete();
+        return json_encode(true);
     }
 }

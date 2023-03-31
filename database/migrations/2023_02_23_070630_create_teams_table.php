@@ -17,9 +17,6 @@ return new class extends Migration
             $table->string('designation');
             $table->string('person_image');
             $table->string('description');
-            $table->string('facebook_URL');
-            $table->string('instagram_URL');
-            $table->string('linkedin_URL');
             $table->timestamps();
         });
     }

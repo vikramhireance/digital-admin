@@ -24,6 +24,7 @@ class RegisterController extends BaseController
             'password' => 'required',
             'c_password' => 'required|same:password',
         ]);
+        
    
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());       

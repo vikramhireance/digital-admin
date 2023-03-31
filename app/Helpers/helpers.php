@@ -104,3 +104,9 @@ if (! function_exists('get_seo_data')) {
         return DB::table('manage_seo')->where('page_name',$page_name)->first();
     }
 }
+if (! function_exists('get_useful_links')) {
+    function get_useful_links($page_name)
+    {
+        return DB::table('useful_links')->where('page_name',$page_name)->first();
+    }
+}

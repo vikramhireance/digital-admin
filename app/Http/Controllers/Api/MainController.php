@@ -3,140 +3,120 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Blog;
-use App\Models\BlogCategory;
-use App\Models\Contact;
-use App\Models\ContactMessage;
-use App\Models\EmailSubscriber;
-use App\Models\Gallery;
-use App\Models\General_Settings;
 use App\Models\ServiceCategory;
 use Illuminate\Http\Request;
 use App\Models\ManageSlider;
-use App\Models\Portfolio;
+use App\Models\Price;
+use App\Models\PricingItem;
 use App\Models\Service;
+use App\Models\Talk;
 use App\Models\Team;
+use App\Models\Testimonials;
+use App\Models\UsefulLinks;
 use Illuminate\Support\Facades\DB;
 
 class MainController extends Controller
 {
     public function slider()
     {
-        $data = ManageSlider::all();
+        $slider = ManageSlider::all();
+        $data['data'] = $slider;
+        $data['success'] = true;
+        $data['message'] = "Slider Data Retrived Success";
+
+
         return response()->json($data);
     }
     public function aboutus()
     {
-        $data = DB::table('manage_about_us')->get();
+        $about = DB::table('manage_about_us')->get();
+        $data['data'] = $about;
+        $data['success'] = true;
+        $data['message'] = "About Us Data Retrived Success";
         return response()->json($data);
     }
     public function team()
     {
-        $data = Team::all();
+        $team = Team::all();
+        $data['data'] = $team;
+        $data['success'] = true;
+        $data['message'] = "Team Data Retrived Success";
         return response()->json($data);
     }
-    public function gallery()
-    {
-        $data = Gallery::all();
-        return response()->json($data);
-    }
-    public function contact()
-    {
-        $data = Contact::all();
-        return response()->json($data);
-    }
-    public function general_settings()
-    {
-        $data = General_Settings::all();
-        return response()->json($data);
-    }
+
+
     public function service_list()
     {
-        $data = Service::all();
+        $service = Service::all();
+        $data['data'] = $service;
+        $data['success'] = true;
+        $data['message'] = "Service Data Retrived Success";
         return response()->json($data);
     }
-    public function service_details(Request $request,$id)
+    public function service_details(Request $request, $id)
     {
-        $service=Service::find($id);
-        if(!empty($service)){
-             if($service->category){
-                 $service->category = ServiceCategory::whereIn('id',json_decode($service->category))->get();
-             }else{
-                 $service->category = [];
-             }
+        $service = Service::find($id);
+        if (!empty($service)) {
+            if ($service->category) {
+                $service->category = ServiceCategory::whereIn('id', json_decode($service->category))->get();
+            } else {
+                $service->category = [];
+            }
         }
+
         return response()->json($service);
     }
-    public function portfolio_list()
+    public function service_category_details()
     {
-        $data = Portfolio   ::all();
+
+        $service = ServiceCategory::all();
+        $data['data'] = $service;
+        $data['success'] = true;
+        $data['message'] = "Service Category Details";
         return response()->json($data);
     }
-    public function portfolio_details($id)
+    public function talk_to_us()
     {
-        $portfolio=DB::table('portfolios')
-        ->select('portfolios.*','portfolio_catrgories.title AS category_name')
-        ->join('portfolio_catrgories','portfolio_catrgories.id','portfolios.category')
-        ->where('portfolios.id',$id)
-        ->first();
-        return response()->json($portfolio);
-    }
-    public function blog_list()
-    {
-        $data = Blog::all();
+
+        $tal_to = Talk::all();
+        $data['data'] = $tal_to;
+        $data['success'] = true;
+        $data['message'] = "Talk to us Data Retrived";
         return response()->json($data);
     }
-    public function blog_details($id)
+    public function pricing()
     {
-        $blog=Blog::find($id);
-        if(!empty($blog)){
-             if($blog->category){
-                 $blog->category = BlogCategory::whereIn('id',json_decode($blog->category))->get();
-             }else{
-                 $blog->category = [];
-             }
-        }
-        return response()->json($blog);
+
+        $tal_to = Price::all();
+        $data['data'] = $tal_to;
+        $data['success'] = true;
+        $data['message'] = "Price Data Retrived";
+        return response()->json($data);
     }
-    public function message_submit(Request $request)
+    public function pricing_items()
     {
-        $request->validate([
-            'phone' => 'required',
-            'name' => 'required',
-            'email' => 'required',
-            'title' => 'required',
-            'message' => 'required',
-        ]);
 
-        $conatct = new ContactMessage();
-        $conatct->phone = $request->phone;
-        $conatct->name = $request->name;
-        $conatct->title = $request->title;
-        $conatct->email = $request->email;
-        $conatct->message = $request->message;
-        $conatct->save();
-        $response = [
-            'success' => true,
-            'message' => 'Message Submited Successfully..',
-        ];
-
-        return response()->json($response);
+        $tal_to = PricingItem::all();
+        $data['data'] = $tal_to;
+        $data['success'] = true;
+        $data['message'] = "Price Items Data Retrived";
+        return response()->json($data);
     }
-    public function newsletter_submit(Request $request)
+    public function testimonial_details()
     {
-        $request->validate([
-            'email'=>'required|unique:email_subscribers',
-        ]);
 
-        $data=new EmailSubscriber();
-        $data->email = $request->email;
-        $data->save();
-
-        $response = [
-            'success' => true,
-            'message' => 'News Letters Submited Successfully..',
-        ];
-
-        return response()->json($response);
+        $tal_to = Testimonials::all();
+        $data['data'] = $tal_to;
+        $data['success'] = true;
+        $data['message'] = "Testimonials Detail Data Retrived";
+        return response()->json($data);
+    }
+    public function useful_links($page_name)
+    {
+        $link=DB::table('useful_links')->where('page_name',$page_name)->first();
+        $data['data'] = $link;
+        $data['success'] = true;
+        $data['message'] = "successfully";
+        return response()->json($data);
     }
 }

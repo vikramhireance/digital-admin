@@ -38,7 +38,7 @@
 
                                 </div>
                                 <div class="form-group">
-                                    <label for="example-text-input-lg" >Name</label>
+                                    <label for="example-text-input-lg" >Title</label>
                                     <div class="col-md-12">
                                         <input class="form-control mb-3" type="text" name="name" value="{{$data->name}}"
                                             placeholder="Enter Name" id="example-text-input-lg">
@@ -56,10 +56,24 @@
                                         <img src="{{asset('Testimonials')}}/{{$data->person_image}}" width="100%">
                                     </div>
                                 </div>
+                               
                                 <div class="form-group">
-                                    <label for="example-text-input-lg" >Person Image</label>
+                                    <label for="example-text-input-lg" >User Image</label>
                                     <div class="col-sm-12">
                                         <input class="form-control mb-3 file1" type="file" name="person_image"
+                                            placeholder="Select person_image" id="example-text-input-lg">
+                                    </div>
+                                </div>
+                                <div class="form-group imgPreview2">
+                                    <label for="example-text-input-lg" ></label>
+                                    <div class="col-sm-2">
+                                        <img src="{{asset('Testimonials')}}/{{$data->logo}}" width="100%">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="example-text-input-lg" >Logo</label>
+                                    <div class="col-sm-12">
+                                        <input class="form-control mb-3 file2" type="file" name="logo"
                                             placeholder="Select person_image" id="example-text-input-lg">
                                     </div>
                                 </div>
@@ -70,7 +84,7 @@
                                             placeholder="Enter designation" id="example-text-input-lg">
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="example-text-input-lg" >rating</label>
                                     <div class="col-md-12 mt-2">
                                         <span class="fa fa-star fa-lg rating @if($data->rating > 0) checked @endif" data-id="1" id="ratingno_1"></span>
@@ -80,7 +94,7 @@
                                         <span class="fa fa-star fa-lg rating @if($data->rating > 4) checked @endif" data-id="5" id="ratingno_5"></span>
                                     </div>
                                     <input type="hidden" name="rating" value="{{$data->rating}}" class="rating_value">
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="card-footer">
                                 <center class="col-md-12">
@@ -111,7 +125,7 @@
 <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 <script src="{{asset('admin/assets/plugins/select/selectr.min.js')}}"></script>
 <script src="{{asset('admin/assets/pages/forms-advanced.js')}}"></script>
-<script>
+{{-- <script>
     $(".rating").click(function(){
         var no = $(this).attr('data-id');
         $('.rating_value').val(no);
@@ -120,7 +134,7 @@
             $('#ratingno_'+index).attr('class','fa fa-star fa-lg rating checked');
         }
     });
-</script>
+</script> --}}
 <script>
     $('.file1').change(function(){
         const file = this.files[0];
@@ -130,6 +144,18 @@
             console.log(event.target.result);
             $('.imgPreview img').attr('src', event.target.result);
             $('.imgPreview').show();
+            }
+            reader.readAsDataURL(file);
+        }
+    });
+    $('.file2').change(function(){
+        const file = this.files[0];
+        if (file){
+            let reader = new FileReader();
+            reader.onload = function(event){
+            console.log(event.target.result);
+            $('.imgPreview2 img').attr('src', event.target.result);
+            $('.imgPreview2').show();
             }
             reader.readAsDataURL(file);
         }
